@@ -7,12 +7,10 @@ class WeatherClient {
 
   fetchWeatherData(city) {
     const myApiKey = require('./apiKey')
-    return fetch(`http://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${myApiKey}`)
+    return fetch(`http://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${myApiKey}`) // it is a promise
       .then((response) => response.json())
       .then((weatherData) => {
-        console.log(`Weather data for ${weatherData.name}:`)
-        console.log(weatherData);
-        return weatherData;
+      return weatherData;
       })
   };
 };

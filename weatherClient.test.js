@@ -3,12 +3,9 @@ const client = new WeatherClient();
 
 describe('WeatherClient', () => {
   it('receivess weather data', (done) => {
-    client.fetchWeatherData('London')
-      .then((weatherData) => {
-        console.log(`Weather data for ${weatherData.name}:`)
-        console.log(weatherData);
-        done();
-      })
-    
+    client.fetchWeatherData('London').then((data) => {
+      expect(data.name).toEqual('London')
+    })
+    done();
   });
 });
